@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>geolocation_vets</title>
+</head>
+
+<body>
+
+
+  <!-- MapArea -->
+  <div id="view"></div>
+  <div id="myMap" style="width:100%;height:50%;"></div>
+  <!-- /MapArea -->
+
+  <!-- jQuery&GoogleMapsAPI -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=***APIKEY***' async
+    defer></script>
+  <script src="js/BmapQuery.js"></script>
+  <script src="js/trim.js"></script>
+
+  <script>
+
+    //****************************************
+    //失敗関数：　位置情報の取得に失敗したときの処理
+    //****************************************
+    function mapsError(error) {
+      let e = "";
+      if (error.code == 1) { //1＝位置情報取得が許可されてない（ブラウザの設定）
+        e = "位置情報が許可されてません";
+      }
+      if (error.code == 2) { //2＝現在地を特定できない
+        e = "現在位置を特定できません";
+      }
+      if (error.code == 3) { //3＝位置情報を取得する前にタイムアウトになった場合
+        e = "位置情報を取得する前にタイムアウトになりました";
+      }
+      alert("エラー：" + e);
+    };
+
+    //****************************************
+    //オプション設定（基本的にコピペ）
+    //****************************************
+    const set = {
+      enableHighAccuracy: true, //より高精度な位置を求める
+      maximumAge: 20000, //最後の現在地情報取得が20秒以内であればその情報を再利用する設定
+      timeout: 10000 //10秒以内に現在地情報を取得できなければ、処理を終了
+    };
+
+
+    //****************************************
+    //最初に実行する関数：　位置情報を取得する処理
+    //****************************************
+    function GetMap() {
+      navigator.geolocation.getCurrentPosition(mapsInit, mapsError, set);
+    }
+
+  </script>
+</body>
+
+</html>

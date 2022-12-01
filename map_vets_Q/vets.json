@@ -1,0 +1,28 @@
+
+[
+{
+    "lat":35.652048,
+    "lon":139.704297,
+    "title":"動物病院",
+    "pinColor":"#9400d3",
+    "height":300,
+    "width":320,
+    "description": "<a href='https://www.halu.vet/'>HALU動物病院</a>",
+    "show":false
+},
+{
+    "lat":35.656909,
+    "lon":139.704839,
+    "title":"動物病院",
+    "pinColor":"#9400d3",
+    "height":300,
+    "width":320,
+    "description": "<a href='http://www.sjd.co.jp/hospital/'>SHIBUYAフレンズ動物病院</a>",
+    "show":false
+}
+
+
+
+
+
+]
